@@ -37,8 +37,3 @@ bin/credentials
 ```
 docker system prune
 ```
-
-**Create Swagger/Spec File:** 
-```
-docker-compose run web rails generate rspec:swagger API::MyControllerName
-```
