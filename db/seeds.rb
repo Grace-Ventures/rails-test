@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Task.create(
+Task.create!(
   title: "Build a Birdhouse",
-  description: "We need to build a birdhouse for Grandma"
+  description: "We need to build a birdhouse for Grandma",
   due_at: 3.days.from_now)
