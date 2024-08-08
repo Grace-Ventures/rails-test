@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Docker container commands
 
-Things you may want to cover:
+**Build Docker Image:** 
+```
+bin/build
+```
 
-* Ruby version
+**Launch Container:** 
+```
+bin/dev
+```
 
-* System dependencies
+**Run Automated Tests:** 
+```
+bin/test
+```
 
-* Configuration
+**Editing Credentials:** 
+```
+bin/credentials
+```
 
-* Database creation
+**Remove Unused Containers:** 
+```
+docker system prune
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Create Swagger/Spec File:** 
+```
+docker-compose run web rails generate rspec:swagger API::MyControllerName
+```
