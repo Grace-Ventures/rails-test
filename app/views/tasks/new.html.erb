@@ -1,0 +1,47 @@
+<div style="display: flex; height: 100vh; justify-content: center; align-items: center; gap: 20px;">
+  
+  <!-- Form for Adding Tasks -->
+  <div style="flex: 1; padding: 20px; border-right: 1px solid #ccc;">
+    <h2>Add a Task</h2>
+    <%= form_with(model: Task.new, local: true) do |form| %>
+      <div style="margin-bottom: 10px;">
+        <%= form.label :title %>
+        <%= form.text_field :title, required: true, style: "width: 100%;" %>
+      </div>
+
+      <div style="margin-bottom: 10px;">
+        <%= form.label :description %>
+        <%= form.text_area :description, required: true, style: "width: 100%;" %>
+      </div>
+
+      <div style="margin-bottom: 10px;">
+        <%= form.label :due_at, "Due Date" %>
+        <%= form.datetime_local_field :due_at, required: true, style: "width: 100%;" %>
+      </div>
+
+      <div>
+        <%= form.submit "Add Task", style: "width: 100%; padding: 10px;" %>
+      </div>
+    <% end %>
+  </div>
+  
+  <!-- List of Current Tasks -->
+  <div style="flex: 1; padding: 20px;">
+    <h2>Your Tasks</h2>
+    <% if @tasks.any? %>
+      <% @tasks.each do |task| %>
+        <div style="margin-bottom: 20px;">
+          <h4><%= task.title %></h4>
+          <p><%= task.description %></p>
+          <p><strong>Due:</strong> <%= task.due_at.strftime("%B %d, %Y %I:%M %p") if task.due_at %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <p>You have no tasks</p>
+    <% end %>
+  </div>
+
+</div>
+
+
+
