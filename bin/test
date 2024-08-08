@@ -1,0 +1,2 @@
+RAILS_ENV=test docker-compose run web rails rswag
+RAILS_ENV=test docker-compose run web rails test:all

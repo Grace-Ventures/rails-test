@@ -1,0 +1,40 @@
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/rails-test
+    command: rails s -b 0.0.0.0
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db/grace_${RAILS_ENV:-development}
+      - RAILS_ENV=${RAILS_ENV:-development}
+      - EDITOR=vim --wait
+
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: passagist_${RAILS_ENV:-development}
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+volumes:
+  postgres_data:
+  redis_data:
+  builds:
+
+# services:
+#   web:
+#     build:
+#       context: ./
+#       dockerfile: Dockerfile-dev
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - .:/usr/src/app
