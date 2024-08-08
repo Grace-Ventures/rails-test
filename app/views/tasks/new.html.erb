@@ -34,6 +34,12 @@
           <h4><%= task.title %></h4>
           <p><%= task.description %></p>
           <p><strong>Due:</strong> <%= task.due_at.strftime("%B %d, %Y %I:%M %p") if task.due_at %></p>
+          <p><strong>Completed At:</strong> <%= task.completed_at.strftime("%B %d, %Y %I:%M %p") if task.completed_at %></p>
+
+          <div style="margin-top: 10px;">
+            <%= button_to "Complete", completed_task_path(task), method: :put, form: { style: "display: inline;" } %>
+            <%= button_to "Delete", task_path(task), method: :delete, form: { style: "display: inline;" } %>
+          </div>
         </div>
       <% end %>
     <% else %>
@@ -42,6 +48,3 @@
   </div>
 
 </div>
-
-
-

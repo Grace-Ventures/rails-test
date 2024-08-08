@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "tasks#new"
 
-  resources :tasks
+  resources :tasks, only: [:new, :create, :destroy] do 
+    member do 
+      put :completed
+    end
+  end
 end

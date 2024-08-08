@@ -13,8 +13,8 @@ class TasksController < ApplicationController
     end
   end
 
-  def started 
-    if @task.started! 
+  def completed 
+    if @task.completed!
       redirect_back fallback_location: root_url
     else
       render :new
