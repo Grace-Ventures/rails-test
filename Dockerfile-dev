@@ -9,7 +9,3 @@ WORKDIR /rails-test
 
 COPY . .
 RUN bundle install
-
-# FROM ruby:3.2.3
-
-# WORKDIR /usr/src/app
