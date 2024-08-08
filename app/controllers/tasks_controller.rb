@@ -14,11 +14,19 @@ class TasksController < ApplicationController
   end
 
   def started 
-
+    if @task.started! 
+      redirect_back fallback_location: root_url
+    else
+      render :new
+    end
   end
 
   def destroy
-
+    if @task.destroy 
+      redirect_back fallback_location: root_url
+    else
+      render :new
+    end
   end
 
   private 
