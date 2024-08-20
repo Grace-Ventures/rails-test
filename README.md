@@ -28,6 +28,11 @@ bin/dev
 bin/test
 ```
 
+**Launch Rails Console:** 
+```
+bin/console
+```
+
 **Editing Credentials:** 
 ```
 bin/credentials
