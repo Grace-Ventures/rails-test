@@ -1,1 +1,1 @@
-docker-compose run web rails c
+docker compose run web rails c
